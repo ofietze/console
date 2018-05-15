@@ -16,37 +16,35 @@ input.keypress(function(e) {
 		if (inputVal == "help") {
 			help();
 			input.val('');
-		} else if (inputVal == "ping") {
+		} else if (inputVal == "ping" || inputVal.startsWith("cd games") === true) {
 			pong();
 			input.val('');
-		} else if (inputVal == "about") {
-			aboutMe();
+		} else if (inputVal == "ls") {
+			ls();
 			input.val('');
-		} else if (inputVal == "contact") {
-			contactMe();
+		} else if (inputVal.startsWith("cd porn") === true) {
+			Output('<span class="red">You dirty !#@%! </span>');
 			input.val('');
-		} else if (inputVal == "clear") {
+		}else if (inputVal.startsWith("cd uni") === true) {
+			Output('<span class="green">This folder is empty. Start studying</span>');
+			input.val('');
+		}else if (inputVal == "clear") {
 			clearConsole();
 			input.val('');
-		} else if (inputVal.startsWith("say") === true) {
-			sayThis(inputVal);
-			input.val('');
-		} else if (inputVal.startsWith("sudo") === true) {
-			sudo(inputVal);
-			input.val('');
-		} else if (inputVal == "time") {
-			getTime();
-			input.val('');
-		} else if (inputVal == 'whats that sound' || inputVal == 'what\'s that sound' || inputVal == 'whats that sound?') {
-			seperator();
-			Output('<span class="blue">' + inputVal + '</span></br><span class="red">Machine Broken!</span></br>');
-			seperator();
+		} else if (inputVal.startsWith("vim") === true || inputVal.startsWith("nvim") === true) {
+			Output('<span class="red">Alert! Medieval editor detected!</span><br><span class="green">I\'ll show you a proper editor.</span>');
+			setTimeout(function() {
+				window.open('https://atom.io');
+			}, 2000);
 			input.val('');
 		} else if (inputVal.startsWith("exit") === true) {
-			Output('<span class="blue">Goodbye! Comeback soon.</span>');
+			Output('<span class="green">Goodbye! Comeback soon.</span>');
 			setTimeout(function() {
-				window.open('https://codepen.io/MarioDesigns');
+				window.open('https://github.com/ofietze');
 			}, 1000);
+		} else if (inputVal.startsWith("cd") === true) {
+			Output('<span class="red">usage: cd [dir]</span>');
+			input.val('');
 		} else {
 			Output('<span>command not found</span></br>');
 			input.val('');
@@ -57,9 +55,9 @@ input.keypress(function(e) {
 // functions related to the commands typed
 // =======================================
 
-// prints out a seperator
-function seperator() {
-	Output('<span class="seperator">== == == == == == == == == == == == == == == == == ==</span></br>');
+//
+function ls() {
+	Output('<pre class="blue">porn		uni		games</pre><pre class="green">memes.txt</pre>');
 }
 
 //clears the screen
@@ -70,9 +68,9 @@ function clearConsole() {
 
 // prints out a list of "all" comands available
 function help() {
-	var commandsArray = ['Help: List of available commands', '>help', '>about', '>contact', '>ping', '>time', '>clear', '>say'];
+	var commandsArray = ['BullshitBash, version 42.4.2.0', 'These shell commands are defined internally.  Type \'help \' to see this list.', 'help: List of available commands', '>cd [dir]', '>clear', '>help', '>ls', '>nvim', '>vim', '>exit'];
 	for (var i = 0; i < commandsArray.length; i++) {
-		var out = '<span>' + commandsArray[i] + '</span><br/>'
+		var out = '<span class="green">' + commandsArray[i] + '</span><br/>'
 		Output(out);
 	}
 }
@@ -82,49 +80,6 @@ function pong() {
 	Output('<span>pong</span></br><span class="pong"><b class="left">|</b><b class="right">|</b></span></br>');
 }
 
-// function to the say command
-function sayThis(data) {
-	data = data.substr(data.indexOf(' ') + 1);
-	Output('<span class="green">[say]:</span><span>' + data + '</span></br>');
-}
-
-// sudo?!? not really
-function sudo(data) {
-	data = data.substr(data.indexOf(' ') + 1);
-	if (data.startsWith("say") === true) {
-		data = "Not gona " + data + " to you, you don\'t own me!"
-	} else if (data.startsWith("apt-get") === true) {
-		data = "<span class='green'>Updating...</span> The cake is a lie! There is nothing to update..."
-	} else {
-		data = "The force is week within you, my master you not be!"
-	}
-	Output('<span>' + data + '</span></br>');
-}
-
-// function to get current time...not
-function getTime() {
-	Output('<span>It\'s the 21st century man! Get a SmartWatch</span></br>');
-}
-
-function aboutMe() {
-	var aboutMeArray = ['>About:', 'Hi There!', 'I\'m Mario, a Digital Developer working [@wearecollider](http://www.wearecollider.com) during the day and a designer, freerider, pcbuilder, droneracer and science lover on my free time.', 'Fell free to follow me on twitter @MDesignsuk - see contact page.'];
-	seperator();
-	for (var i = 0; i < aboutMeArray.length; i++) {
-		var out = '<span>' + aboutMeArray[i] + '</span><br/>'
-		Output(out);
-	}
-	seperator();
-}
-
-function contactMe() {
-	var contactArray = ['>Contact:', '[GitHub](https://github.com/Mario-Duarte)', '[BitBucket](https://bitbucket.org/Mario_Duarte/)', '[CodePen](https://codepen.io/MarioDesigns/)', '[Twitter](https://twitter.com/MDesignsuk)'];
-	seperator();
-	for (var i = 0; i < contactArray.length; i++) {
-		var out = '<span>' + contactArray[i] + '</span><br/>'
-		Output(out);
-	}
-	seperator();
-}
 
 // Prints out the result of the command into the output div
 function Output(data) {

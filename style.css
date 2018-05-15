@@ -74,180 +74,13 @@
     left: 0%;
   }
 }
-@-webkit-keyframes raketes {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  20% {
-    -webkit-transform: translateY(10%);
-            transform: translateY(10%);
-  }
-  25% {
-    -webkit-transform: translateY(-30%);
-            transform: translateY(-30%);
-  }
-  50% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  60% {
-    -webkit-transform: translateY(25%);
-            transform: translateY(25%);
-  }
-  80% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-@keyframes raketes {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  20% {
-    -webkit-transform: translateY(10%);
-            transform: translateY(10%);
-  }
-  25% {
-    -webkit-transform: translateY(-30%);
-            transform: translateY(-30%);
-  }
-  50% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  60% {
-    -webkit-transform: translateY(25%);
-            transform: translateY(25%);
-  }
-  80% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-@-webkit-keyframes glitch {
-  0% {
-    color: white;
-    -webkit-transform: translateX(0) translateY(0%);
-            transform: translateX(0) translateY(0%);
-  }
-  25% {
-    color: #3498db;
-    -webkit-transform: translateX(1px) translateY(1px);
-            transform: translateX(1px) translateY(1px);
-  }
-  40% {
-    color: #e74c3c;
-    -webkit-transform: translateX(-2px) translateY(-2px);
-            transform: translateX(-2px) translateY(-2px);
-  }
-  50% {
-    color: #cccccc;
-    -webkit-transform: translateX(0) translateY(0);
-            transform: translateX(0) translateY(0);
-  }
-  80% {
-    color: #3498db;
-    -webkit-transform: translateX(2px) translateY(2px);
-            transform: translateX(2px) translateY(2px);
-  }
-  90% {
-    color: #e74c3c;
-    -webkit-transform: translateX(-1px) translateY(-1px);
-            transform: translateX(-1px) translateY(-1px);
-  }
-  100% {
-    color: white;
-    -webkit-transform: translateX(0) translateY(0);
-            transform: translateX(0) translateY(0);
-  }
-}
-@keyframes glitch {
-  0% {
-    color: white;
-    -webkit-transform: translateX(0) translateY(0%);
-            transform: translateX(0) translateY(0%);
-  }
-  25% {
-    color: #3498db;
-    -webkit-transform: translateX(1px) translateY(1px);
-            transform: translateX(1px) translateY(1px);
-  }
-  40% {
-    color: #e74c3c;
-    -webkit-transform: translateX(-2px) translateY(-2px);
-            transform: translateX(-2px) translateY(-2px);
-  }
-  50% {
-    color: #cccccc;
-    -webkit-transform: translateX(0) translateY(0);
-            transform: translateX(0) translateY(0);
-  }
-  80% {
-    color: #3498db;
-    -webkit-transform: translateX(2px) translateY(2px);
-            transform: translateX(2px) translateY(2px);
-  }
-  90% {
-    color: #e74c3c;
-    -webkit-transform: translateX(-1px) translateY(-1px);
-            transform: translateX(-1px) translateY(-1px);
-  }
-  100% {
-    color: white;
-    -webkit-transform: translateX(0) translateY(0);
-            transform: translateX(0) translateY(0);
-  }
-}
-@-webkit-keyframes changeColor {
-  0% {
-    color: #cccccc;
-  }
-  25% {
-    color: #2ecc71;
-  }
-  50% {
-    color: #e74c3c;
-  }
-  75% {
-    color: #3498db;
-  }
-  100% {
-    color: #cccccc;
-  }
-}
-@keyframes changeColor {
-  0% {
-    color: #cccccc;
-  }
-  25% {
-    color: #2ecc71;
-  }
-  50% {
-    color: #e74c3c;
-  }
-  75% {
-    color: #3498db;
-  }
-  100% {
-    color: #cccccc;
-  }
-}
+
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Press Start 2P', cursive;
+  font-family: monospace;
   background-color: #212121;
 }
 
@@ -256,7 +89,11 @@ h2,
 p,
 span,
 textarea {
-  font-family: 'Press Start 2P', cursive;
+  font-family: monospace;
+}
+
+span {
+  display: inline-block;
 }
 
 .console {
@@ -269,38 +106,27 @@ textarea {
 }
 .console .output {
   width: 100%;
-  font-size: 12px;
+  font-size: 16px;
   color: #cccccc;
 }
 .console .output span {
   line-height: 20px;
 }
-.console .output span.grey {
+.grey {
   color: #cccccc;
 }
-.console .output span.green {
+.green {
   color: #2ecc71;
 }
-.console .output span.red {
+.red {
   color: #e74c3c;
 }
-.console .output span.blue {
+.blue {
   color: #3498db;
-}
-.console .output pre {
-  font-size: 9px;
-  -webkit-animation: glitch 0.2s linear infinite;
-          animation: glitch 0.2s linear infinite;
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-}
-.console .output pre:hover {
-  -webkit-animation-play-state: running;
-          animation-play-state: running;
 }
 .console .action {
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 20px;
 }
 .console .action span {
@@ -310,22 +136,17 @@ textarea {
   color: white;
 }
 .console .action textarea {
-  width: calc(100% - 65px);
+  width: calc(100% - 115px);
   float: left;
+  font-size: 16px;
   background: none;
   border: none;
   color: white;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 50px;
 }
 .console .action textarea:focus {
   outline: none;
-}
-
-span.seperator {
-  font-size: 12px;
-  -webkit-animation: changeColor 10s ease-in-out infinite;
-          animation: changeColor 10s ease-in-out infinite;
 }
 
 .pong {
